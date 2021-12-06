@@ -1,0 +1,125 @@
+message.guild
+
+if ctx.channel.id == 873080267814871070:
+
+https://stackoverflow.com/questions/66319244/i-want-to-set-a-password-to-shut-down-a-bot-on-discord-py-and-i-dont-know-how
+bot.load_extension("cogs.minesweeper")
+discord.Colour.random()
+https://i.ibb.co/jZWVw00/Untitled-1.png
+
+api : https://singlecolorimage.com/api.html
+
+@bot.command()
+async def hex(ctx, args):
+
+https://stackoverflow.com/questions/27745500/how-to-save-a-list-to-a-file-and-read-it-as-a-list-type
+
+https://vacefron.nl/
+discapty
+
+  if not message.content == "":
+      try:
+        print("hi")
+      except:
+        pass
+        
+  try:
+    r = requests.get("https://api.chongluadao.vn/v1/blacklist", proxies=urllib.request.getproxies())
+    hi = r.json
+    with open("./data/anticam.db", "wb") as fp:
+      pickle.dump(hi, fp)
+  except:
+    pass
+
+https://animechan.vercel.app/guide
+
+@bot.command()
+async def beta(ctx, url,*, text):
+  view = discord.ui.View()
+  style = discord.ButtonStyle.gray
+  item = discord.ui.Button(style=style, label="Verify", emoji="<:discord:907120262514872352>", url=f"https://discord.com/users/{member.id}")
+  view.add_item(item=item)
+  await ctx.send(text, view=view)
+
+  @bot.command()
+async def test(ctx):
+  for member in ctx.guild.members:
+    role_id = None
+    if not discord.utils.get(member.roles, id=role_id) is None:
+      role_get = get(ctx.guild.roles, id=role_id)  
+      await member.remove_roles(role_get)
+  print("done")
+
+@bot.command()
+async def hi(ctx):
+  for member in ctx.guild.members:
+    if not member.bot:
+      if discord.utils.get(member.roles, id=907238166451343421) is None:
+        role = discord.utils.get(ctx.guild.roles, id=907238166451343421)
+        await member.add_roles(role)
+        print(member)
+  print("DONE")
+
+@bot.command()
+async def beta(ctx,*, args):
+  view = discord.ui.View()
+  style = discord.ButtonStyle.gray
+  item = discord.ui.Button(style=style, label="Verify", url=f"https://discord.com/oauth2/authorize?client_id=909661659423981578&redirect_uri=https%3A%2F%2Flogin-discord.duongtuan30306vn.repl.co&response_type=code&scope=identify")
+  view.add_item(item=item)
+  await ctx.send(args, view=view)
+
+@bot.command()
+async def hi(ctx):
+  for beta in ctx.guild.channels:
+    await beta.set_permissions(ctx.guild.default_role, view_channel=None)
+  print("done")
+
+
+  embed=discord.Embed(title=f"{message.author} ({message.author.id})", description=message.content)
+        embed.set_footer(text=f"s!dm {message.author.id}")
+        if message.attachments:
+              if 'image' in message.attachments[0].content_type:
+                embed.set_image(url=message.attachments[0].url)
+        await bot.get_channel(913273594820329532).send("<@!542602170080428063>", embed=embed)
+  
+@bot.command(no_pm=True)
+async def raidping(ctx,*, tg):
+  if ctx.author.id == 542602170080428063:
+    webhook = []
+    @tasks.loop(seconds=1)
+    async def myLoop():
+      try:
+        run = await ctx.channel.create_webhook(name="by thedt")
+        webhook.append(run)
+      except:
+        pass
+      for i in webhook:
+        value = random.randint(0,9999999999999)
+        await i.send(content=tg, username=value)
+        print(f"send done")
+    myLoop.start()
+
+@bot.command()
+async def clear(ctx, amount:int=100):
+  if ctx.author.guild_permissions.manage_messages:
+    await ctx.channel.purge(limit=amount+1)
+  else:
+    await ctx.reply(f'**Bạn không có quyền dùng command này**')
+
+@bot.event
+async def on_command_error(ctx, error):
+  try:
+    guild = ctx.guild.id
+    nguild = ctx.guild.name
+    channel = ctx.channel.id
+    nchannel = ctx.channel.name
+    info = f"Channel : #{nchannel} ({channel})\nGuild : {nguild} ({guild})"
+    einfo = f"**Channel :** #{nchannel} ({channel})\n**Guild :** {nguild} ({guild})"
+  except:
+    info = f"Channel : DMs"
+    einfo = f"**Channel :** DMs"
+  print(Fore.RED + f"User : {ctx.author} ({ctx.author.id})\nError : {error}\n{info}" + Fore.RESET)
+  embed=discord.Embed(description=f"**User :** {ctx.author} ({ctx.author.id})\n**Error :** {error}\n{einfo}")
+  await bot.get_channel(914152665775231017).send(embed=embed)
+
+commands.when_mentioned_or(prefix)(bot, message)
